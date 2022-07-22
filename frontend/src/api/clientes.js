@@ -41,6 +41,7 @@ const removerCliente = (id) =>
       mutation{deletarCliente(id: ${id})}
     `))
 
+    
 export default {
   listarClientes,
   buscarClientePorId,
