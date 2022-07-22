@@ -37,7 +37,9 @@ const alterarCliente = (id, cliente) =>
   .then(dados => dados.data)
 
 const removerCliente = (id) =>
-  api.delete(`/clientes/cliente/${id}`).then((resposta) => resposta.data);
+    fetch('http://localhost:4000', opcoesFetch(`
+      mutation{deletarCliente(id: ${id})}
+    `))
 
 export default {
   listarClientes,
