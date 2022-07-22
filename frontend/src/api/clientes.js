@@ -1,16 +1,13 @@
-import { api } from "./config";
+import { api, opcoesFetch } from "./config";
+
 
 const listarClientes = () =>
-  fetch(`http://localhost:4000`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: "{clientes {nome cpf}}" }),
-  }).then(resposta => resposta.json()).then(dados => {
-    console.log(dados)
-    return []
-  })
+  fetch(`http://localhost:4000`, opcoesFetch("{clientes {nome cpf}}"))
+    .then((resposta) => resposta.json())
+    .then((dados) => {
+      console.log(dados);
+      return dados.data.clientes;
+    });
 const buscarClientePorId = (id) =>
   api.get(`/clientes/cliente/${id}`).then((resposta) => resposta.data[0]);
 
