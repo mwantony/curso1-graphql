@@ -6,7 +6,9 @@ export const LISTAR_PETS = gql`
       id
       nome 
       tipo
-      dono
+      dono {
+        id
+      }
       observacoes
     }
   }
