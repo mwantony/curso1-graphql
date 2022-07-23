@@ -4,10 +4,11 @@ export const LISTAR_PETS = gql`
   query {
     pets {
       id
-      nome 
+      nome
       tipo
       dono {
         id
+        nome
       }
       observacoes
     }
